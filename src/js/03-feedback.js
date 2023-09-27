@@ -1,6 +1,7 @@
-import throttle from 'lodash.throttle';
+import _ from 'lodash';
 const inputEvent = document.querySelector('input');
 const textAreaEvent = document.querySelector('textarea');
+const THROTTLE_TIME = 500;
 const dataForm = {
   email: '',
   message: '',
@@ -10,7 +11,7 @@ const throttledSaveToLocalStorage = _.throttle(
   THROTTLE_TIME
 );
 const feedbackForm = document.querySelector('.feedback-form');
-const THROTTLE_TIME = 500;
+
 inputEvent.addEventListener('input', function (event) {
   const currentEmailValue = event.target.value;
   dataForm.email = currentEmailValue;
