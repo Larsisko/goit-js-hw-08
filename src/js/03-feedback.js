@@ -40,10 +40,14 @@ window.addEventListener('load', loadFromLocalStorage);
 
 feedbackForm.addEventListener('submit', function (event) {
   event.preventDefault();
-  console.log('Dane wysłane:', dataForm);
-  localStorage.removeItem('feedback-form-state');
-  inputEvent.value = '';
-  textAreaEvent.value = '';
-  dataForm.email = '';
-  dataForm.message = '';
+  if (!dataForm.email || !dataForm.message) {
+    alert('Both email and message fields are required.');
+  } else {
+    console.log('Dane wysłane:', dataForm);
+    localStorage.removeItem('feedback-form-state');
+    inputEvent.value = '';
+    textAreaEvent.value = '';
+    dataForm.email = '';
+    dataForm.message = '';
+  }
 });
